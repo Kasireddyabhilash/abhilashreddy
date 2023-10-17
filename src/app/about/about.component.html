@@ -1,0 +1,68 @@
+<form [formGroup]="formdata" (ngSubmit)="onSubmit()">
+    <div class="wrapper rounded bg-white">
+  
+      <div class="h3">Registration Form</div>
+  
+      <div class="form">
+        <div class="row" class="">
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label for="firstName">First Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="firstName" formControlName="firstName" required>
+            <div *ngIf="formdata.controls['firstName'].invalid && formdata.controls['firstName'].touched" class="error_text">
+              <div *ngIf="formdata.controls['firstName'].errors" class="error_text">
+              Name is required.
+            </div>
+          </div>
+          </div>
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" formControlName="lastName" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label for="birthday">Birthday</label>
+            <input type="date" class="form-control" name="birthday" formControlName="birthday" required>
+          </div>
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label>Gender</label>
+            <div class="d-flex align-items-center mt-2">
+              <label class="option">
+                <input type="radio" name="gender" formControlName="gender" value="male">Male
+                <span class="checkmark"></span>
+              </label>
+              <label class="option ms-4">
+                <input type="radio" name="gender" formControlName="gender" value="female">Female
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" formControlName="email" required>
+          </div>
+          <div class="col-md-6 mt-md-0 mt-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" name="phoneNumber" formControlName="phoneNumber" required>
+          </div>
+        </div>
+        <div class="my-md-2 my-3">
+            <label for="subject">Subject</label>
+            <select class="form-control" name="subject" formControlName="subject">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="action">Action</option>
+              <option value="another-action">Another action</option>
+              <option value="something-else">Something else here</option>
+            </select>
+          </div>
+        <div class="btn btn-primary mt-3">
+          <button type="submit">Submit</button>
+          
+        </div>
+      </div>
+  
+    </div>
+  </form>
+  <router-outlet></router-outlet>

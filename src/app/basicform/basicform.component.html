@@ -1,0 +1,24 @@
+<form [formGroup]="formdata" (ngSubmit)="formValidate()">
+    <div class="">
+        <div class="form">
+            <div class="row col-md-6">
+                <label class="center-block">Name:<span class="text-danger">*</span>
+                    <input class="form-control" name="name" formControlName="name">
+                </label>
+                <div *ngIf="formdata.controls['name'].invalid && (formdata.controls['name'].dirty || formdata.controls['name'].touched)" class="text-danger">
+                    <div *ngIf="formdata.controls['name'].hasError('required')">
+                   <span class="text-danger">
+                    Name is required.
+                   </span>
+                  </div>
+                </div>
+            </div>
+            <div class="btn btn-primary mt-3">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+       
+        
+    </div>
+    
+</form>
